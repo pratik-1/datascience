@@ -1,0 +1,165 @@
+#*****************************************************************************     
+ # Simulate MA(1) Time Series
+Simulate MA timeseries : parameter = -0.9
+Simulate MA timeseries : parameter = +0.9
+Simulate MA timeseries : parameter = +0.3
+#*****************************************************************************     
+ # Compute the ACF for Several MA Time Series
+#*****************************************************************************     
+ # Estimating an MA Model
+                              ARMA Model Results                              
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1000
+Model:                     ARMA(0, 1)   Log Likelihood               -1419.297
+Method:                       css-mle   S.D. of innovations              0.999
+Date:                Mon, 09 Jul 2018   AIC                           2844.594
+Time:                        10:55:17   BIC                           2859.317
+Sample:                             0   HQIC                          2850.190
+                                                                              
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0004      0.003      0.130      0.897      -0.005       0.006
+ma.L1.y       -0.9152      0.013    -71.408      0.000      -0.940      -0.890
+                                    Roots                                    
+=============================================================================
+                 Real           Imaginary           Modulus         Frequency
+-----------------------------------------------------------------------------
+MA.1            1.0927           +0.0000j            1.0927            0.0000
+-----------------------------------------------------------------------------
+When the true theta=-0.9, the estimate of theta (and the consant) are:
+[  3.52207777e-04  -9.15151246e-01]
+#*****************************************************************************     
+ # Forecasting with MA Model
+#*****************************************************************************     
+ # High Frequency Stock Prices
+DATE      object
+CLOSE    float64
+dtype: object
+The length of the DataFrame is:  389
+Missing rows:  {182, 14}
+Fill missing rows with 'ffill'
+                      CLOSE
+2017-08-28 09:30:00  8.2900
+2017-08-28 09:31:00  8.2700
+2017-08-28 09:32:00  8.2800
+2017-08-28 09:33:00  8.2750
+2017-08-28 09:34:00  8.2875
+#*****************************************************************************     
+ # Applying an MA Model
+ACF of returns with lags up to 60 minutes
+const         -0.000002
+ma.L1.CLOSE   -0.179272
+dtype: float64
+#*****************************************************************************     
+ # Equivalence of AR(1) and MA(infinity)
+Simulate the MA(30) model
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            2     M =           12
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.41930D+00    |proj g|=  2.55213D-02
+
+At iterate    5    f=  1.41930D+00    |proj g|=  2.81841D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    2      8     23      1     0     0   3.553D-07   1.419D+00
+  F =   1.4192970374211298     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            2     M =           12
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.41930D+00    |proj g|=  2.55213D-02
+
+At iterate    5    f=  1.41930D+00    |proj g|=  2.81841D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    2      8     23      1     0     0   3.553D-07   1.419D+00
+  F =   1.4192970374211298     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            2     M =           12
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f= -5.92443D+00    |proj g|=  5.46639D-01
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    2      2     42      2     0     0   2.291D-03  -5.924D+00
+  F =  -5.9244309558415553     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+

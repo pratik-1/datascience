@@ -1,0 +1,153 @@
+#*****************************************************************************     
+ # Simulate AR(1) timeseries
+Simulate AR timeseries : parameter = +0.9
+Simulate AR timeseries : parameter = -0.9
+Simulate AR timeseries : parameter = +0..
+
+
+#*****************************************************************************     
+ # Compare ACFs
+ACF of AR timeseries : parameter = +0.9
+ACF of AR timeseries : parameter = -0.9
+ACF of AR timeseries : parameter = +0.3
+
+
+#*****************************************************************************     
+ # Estimating the parameters of AR Model
+Fit an AR(1) model to the first simulated data
+                              ARMA Model Results                              
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1000
+Model:                     ARMA(1, 0)   Log Likelihood               -1393.606
+Method:                       css-mle   S.D. of innovations              0.974
+Date:                Mon, 09 Jul 2018   AIC                           2793.211
+Time:                        10:18:11   BIC                           2807.934
+Sample:                             0   HQIC                          2798.807
+                                                                              
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.1472      0.261     -0.564      0.573      -0.658       0.364
+ar.L1.y        0.8828      0.015     59.664      0.000       0.854       0.912
+                                    Roots                                    
+=============================================================================
+                 Real           Imaginary           Modulus         Frequency
+-----------------------------------------------------------------------------
+AR.1            1.1328           +0.0000j            1.1328            0.0000
+-----------------------------------------------------------------------------
+When the true phi=0.9, the estimate of phi (and the constant) are:
+[-0.14718885  0.88277008]
+
+
+#*****************************************************************************     
+ # Forecasting with an AR Model
+Forecast with first AR(1) model:
+start=990, end=1010
+
+
+#*****************************************************************************     
+ # Forecast Interest Rates
+Forecast interest rates using an AR(1) model
+2017-12-31    2.708877
+2018-12-31    2.445166
+Freq: A-DEC, dtype: float64
+
+
+#*****************************************************************************     
+ # Compare AR Model with Random Walk
+Plot the interest rate series and the simulated random walk series side-by-side
+Plot the autocorrelation of the interest rate series in the top plot
+Plot the autocorrelation of the simulated random walk series in the bottom plot
+
+
+#*****************************************************************************     
+ # Estimate Order of Model: PACF
+Simulate AR(1) with phi=+0.6
+Simulate AR(2) with phi1=+0.6, phi2=+0.3
+
+
+#*****************************************************************************     
+ # Estimate Order of Model: Information Criteria
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            6     M =           12
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.42426D+00    |proj g|=  2.40585D-04
+
+At iterate    5    f=  1.42426D+00    |proj g|=  7.31415D-05
+
+At iterate   10    f=  1.42426D+00    |proj g|=  2.22045D-08
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    6     10     14      1     0     0   2.220D-08   1.424D+00
+  F =   1.4242596040217592     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            7     M =           12
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.42408D+00    |proj g|=  2.39053D-04
+
+At iterate    5    f=  1.42408D+00    |proj g|=  6.07292D-05
+
+At iterate   10    f=  1.42408D+00    |proj g|=  6.66134D-08
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    7     12     16      1     0     0   4.441D-08   1.424D+00
+  F =   1.4240823143074015     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+

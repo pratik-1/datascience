@@ -1,0 +1,70 @@
+#*****************************************************************************     
+#Compute the ACF
+AutoCorrelation earnings of H&R block
+[ 1.         -0.22122696 -0.39856504 -0.26615093  0.83479804 -0.1901038
+ -0.3475634  -0.23140368  0.71995993 -0.15661007 -0.29766783 -0.22097189
+  0.61656933 -0.15022869 -0.27922022 -0.22465946  0.5725259  -0.08758288
+ -0.24075584 -0.20363054  0.4797058  -0.06091139 -0.20935484 -0.18303202
+  0.42481275 -0.03352559 -0.17471087 -0.16384328  0.34341079 -0.01734364
+ -0.13820811 -0.12232172  0.28407164 -0.01927656 -0.11757974 -0.10386933
+  0.20156485 -0.0120634  -0.07509539 -0.0707104   0.10222029]
+ACF plot of H&R block
+
+#*****************************************************************************     
+# ACF N-Lag
+            Adj_Close  adj_close_chnge
+Date                                  
+2012-08-19  27.114212         0.022508
+2012-08-26  26.815865        -0.011003
+2012-09-02  27.044012         0.008508
+2012-09-09  27.158091         0.004218
+2012-09-16  27.386227         0.008400
+The autocorrelation of weekly MSFT returns is -0.16
+The approximate confidence interval is +/- 0.12
+ACF of MSFT with 95% confidence intervals and 20 lags
+
+#*****************************************************************************     
+ # White Noise
+Simulating White Noise...
+The mean is 0.022 and the standard deviation is 0.051
+Plot: White Noise Series
+Plot: ACF of white noise
+
+#*****************************************************************************     
+ # Creating Random Walk
+Simulate stock prices, start price =100, mean=0, stddev=1, steps=500, type=cumulative
+PLOT Random Walk: Simulated stock prices
+
+#*****************************************************************************     
+ # Creating Random Walk with Drift
+Simulate stock prices, start price =100, mean=0, stddev=1, steps=500, type=cumulative, drift=1
+PLOT Random Walk with Drift: Simulated stock prices
+
+#*****************************************************************************     
+ # Stock Prices follow a Random Walk
+Augmented Dickey-Fuller test of MSFT Adj Close price:
+(0.50238915309700349, 0.98494553207509272, 1, 258, {'1%': -3.4559529277063419, '5%': -2.8728086526320302, '10%': -2.5727749906856561}, 829.55606858552642)
+
+The p-value of the test on stock prices is: 0.984945532075
+
+Augmented Dickey-Fuller test of MSFT Adj Close change:
+(-18.785420729124048, 2.0238804729679003e-30, 0, 259, {'1%': -3.4558530692911504, '5%': -2.8727648817786648, '10%': -2.5727516430882069}, -1003.0062848819146)
+
+The p-value of the test on prices returns is: 2.02388047297e-30
+
+#*****************************************************************************     
+ # Seasonal Adjustment in time series
+Plot: ACF of H&R block
+            Earnings  Earnings_Adjstd_quarterly
+Quarter                                        
+2008-01-01     -0.34                       0.02
+2008-04-01     -0.42                      -0.04
+2008-07-01      0.02                      -0.05
+2008-10-01      2.11                       0.26
+2009-01-01     -0.39                      -0.05
+2009-04-01     -0.40                       0.02
+2009-07-01      0.21                       0.19
+2009-10-01      2.10                      -0.01
+2010-01-01     -0.39                       0.00
+2010-04-01     -0.37                       0.03
+Plot: ACF of H&R block with adjusted quarterly earnings
