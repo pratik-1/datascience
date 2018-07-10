@@ -5,6 +5,9 @@ import pandas as pd
 # Create and display the first scatter plot
 hw = pd.read_csv('hourly_wages.csv')
 hw.plot(kind='scatter', x='education_yrs', y='wage_per_hour')
+plt.xlabel('education(in years)')
+plt.ylabel('wages(per hour)')
+plt.title('Hourly wages Vs Education')
 plt.show()
 
 
@@ -16,7 +19,8 @@ gapminder = pd.read_csv('gapminder_tidy.csv')
 gapminder.life.plot(kind='hist')
 # Group gapminder: gapminder_agg
 gapminder_agg = gapminder.groupby('Year')['life'].mean()
-
+plt.xlabel('Age(in years)')
+plt.title('Histogram: Life Expentency')
 
 # Add second subplot
 plt.subplot(2, 1, 2)
