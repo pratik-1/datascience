@@ -47,7 +47,7 @@ for names, group in grouped:
 # Multi-column groupping
 grouped = df.groupby(['Gender', 'Socio-Eco'])
 # Get Multi-column groupping
-print('Group by Gneder and Socio-Eco : \n',grouped.get_group(('Male', 'Rich')),'\n\n')
+print('Group by Gender and Socio-Eco : \n',grouped.get_group(('Male', 'Rich')),'\n\n')
 
 # # Get all groups
 # for names, groups in grouped:
@@ -70,9 +70,11 @@ print('Description of Groups by Gender and Socio-Eco : \n',grouped.describe(),'\
 # Aggregation
 print('***************Aggregation the Datasets**************')
 print('Group by Gender and Socio-Eco : ')
-agg = grouped.aggregate({'Income Sum': np.sum,'avg Age': np.mean,'Variance in Height': np.std})
+agg = grouped.aggregate({'Income': np.sum,'Age': np.mean,'Height': np.std})
+agg.rename(columns={"Income": "Sum of Income", "Age":"mean of Age", "Height": "std in Height"}, inplace = True)
 print(agg)
-lam_agg = grouped.aggregate({'Age(mean)': np.mean, 'Coefficient of Variance in Height': lambda x: np.mean(x)/np.std(x)})
+lam_agg = grouped.aggregate({'Age': np.mean, 'Height': lambda x: np.mean(x)/np.std(x)})
+lam_agg.rename(columns={"Age":"mean of Age", "Height": "std in Height"}, inplace = True)
 print(lam_agg)
 
 # apply several functions to all the columns
@@ -87,7 +89,8 @@ print('***************Filtering the Datasets **************')
 # print(df2.head())
 
 # Get elements from Age column that are a part of the group wherein the sum of Age is greater than 700.
-print('Group by Gender and Socio-Eco and sum of "Age" > 700 ')
+print('Group by Gender and Socio-Eco and elements from Age column that are a \
+part of the group wherein the sum of Age is greater than 700 ')
 print(grouped['Age'].filter(lambda x:x.sum()>700))
 
 
@@ -102,17 +105,17 @@ print(grouped['Age'].filter(lambda x:x.sum()>700))
 df2 = df.loc[:, df.dtypes == 'float64']
 zscore = lambda x: (x - x.mean()) / x.std()
 z_trans = df2.transform(zscore)
-print(z_trans)
+print('\n\nZ Scores top records\n',z_trans.head())
 
 # Fillers
 # filler = lambda x: x.fillna(x.mean())
 # filled = grouped.transform(filler)
 # print(filled)
 
-print(df.head())
+#print(df.head())
 df1 = df.sort_values(['Age','Income'])
 grouped = df1.groupby('Gender')
-print(grouped.head(1))
+print('\n\nSorted by Age and Income and grouped by Gender and fetch first record\n',grouped.head(1))
 
 
 

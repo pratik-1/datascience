@@ -13,7 +13,7 @@ subdata = data[wanted_columns]
 print('Subset of data\n',subdata.head(),'\n\n')
 
 # Selecting rows
-print('Selecting first 10 rows: \n',subdata[1:10],'\n\n')  # [:10] is similar to [1:10]
+print('Selecting first 9 rows: \n',subdata[1:10],'\n\n')  # [:10] is similar to [1:10]
 # Selecting columns
 print('Selecting only required columns: \n',subdata[['Intl Mins', 'Intl Calls', 'Intl Charge']].head(),'\n\n')
 
@@ -33,15 +33,15 @@ sub_data1 = subdata.iloc[2:5, 1:5]
 # sub_data1 = subdata.iloc[[0,4,5], 0:2]
 # sub_data1 = subdata.iloc[1:10,4:7]
 # sub_data1 = subdata.iloc[[1,2,5],[2,5,7]]
-print('Subsetting only 2nd to 4th column and first 5 rows:\n',sub_data1,'\n\n')
+print('Subsetting only 2nd to 4th row and only selected columns:\n',sub_data1,'\n\n')
 
 
 
 # Filter rows based on conditions
-data1 = subdata.iloc[1:1000, :][(subdata['State'] == 'OH') & (subdata['Area Code'] == 415)]  # Both conditions
+data1 = subdata.iloc[1:1001, :][(subdata['State'] == 'OH') & (subdata['Area Code'] == 415)]  # Both conditions
 # data1 = subdata[(subdata['Night Mins'] > 200) | (subdata['State'] == 'VA')]       # Either condition
 # print(subdata[subdata.State.isin(['OH', 'VA'])])
-print('From first 1000 rows filter state = "OH and Area code = "415"\n',data1,'\n\n')
+print('From first 1000 rows filter state = "OH" and Area code = "415"\n',data1,'\n\n')
 
 # DataFrames with zeros
 df2 = data1.copy()
@@ -64,10 +64,10 @@ df4 = df3.loc[:, df3.notnull().any()]  # Remove columns that has all missing val
 
 # Creating new columns
 df4['Total Mins'] = df4['Day Mins'] + df4['Eve Mins'] + df4['Night Mins']
-print('Adding column "Total Mins=Day+Eve+Night Mins\n"',df4,'\n\n')
+print('Adding column "Total Mins=Day+Eve+Night Mins"\n',df4,'\n\n')
 # Modifying a column based on another
 df4.beta[df4['Intl Calls'] == 5] += 5
-print('Added +5 to "Intl calls"\n',df4)
+print('Added +5 to beta where "Intl calls" is 5 \n',df4)
 
 
 # writing df4 to new csv file
